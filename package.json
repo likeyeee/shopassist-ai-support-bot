@@ -1,0 +1,27 @@
+{
+  "name": "shopassist-ai-support-bot",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "node scripts/copy-pdf-worker.mjs",
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "typecheck": "tsc --noEmit",
+    "demo": "cross-env NEXT_PUBLIC_DEMO_MODE=true next dev --hostname 127.0.0.1",
+    "build:demo": "cross-env NEXT_PUBLIC_DEMO_MODE=true next build"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "lucide-react": "^0.577.0",
+    "pdfjs-dist": "^6.2.108"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "cross-env": "^10.1.0",
+    "typescript": "^5.9.3"
+  }
+}

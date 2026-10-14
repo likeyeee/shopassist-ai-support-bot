@@ -1,0 +1,22 @@
+services:
+  shopassist:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file: .env
+    environment:
+      DATA_DIR: /app/data
+      QDRANT_URL: http://qdrant:6333
+    volumes:
+      - app-data:/app/data
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+  qdrant:
+    image: qdrant/qdrant:v1.17.0
+    volumes:
+      - vector-data:/qdrant/storage
+    restart: unless-stopped
+volumes:
+  app-data:
+  vector-data:
